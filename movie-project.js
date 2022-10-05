@@ -78,7 +78,8 @@ $('#form1').submit((e) => {
     fetch(moviesURL, postOptions)
         .then(resp => resp.json())
         .then(moviePosters => {
-            console.log(moviePosters)
+            console.log(moviePosters);
+            movieGlitch();
         }).catch(error => console.log(error))
 
 });
@@ -95,19 +96,21 @@ async function movieGlitch() {
         let events = await response.json();
         console.log("inside movieAPIaSYNC function. events returned: ");
         console.log(events);
+        let moviesHTML = '';
         events.forEach((movie, index) => {
-            $("#outputForMovies").append(`
+            moviesHTML += `
             <div class="card" style="width: 15rem; background-color: #5d5d5d; color: white">
-                <img src="${movie.poster}">
-                <h3>${movie.title}</h3>
-                <h3>${movie.genre}</h3>
-                <p> ${movie.rating}</p> 
-                <p>${movie.description}</p>  
+                  ${movie.poster ? `<img src="${movie.poster}" />` : ''}
+                <h3>${movie.title ?? ''}</h3>
+                <h3>${movie.genre ?? ''}</h3>
+                <p> ${movie.rating ?? ''}</p>
+                <p>${movie.description ?? ''}</p>
                 <br>
-                <button>Delete</button>         
+                <button>Delete</button>
             </div>
-            `)
-        })
+            `;
+        }) // end forEach
+        $('#outputForMovies').html(moviesHTML);
     }
     catch(err) {
         console.log(err);
