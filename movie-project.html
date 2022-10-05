@@ -7,55 +7,66 @@
 </head>
 <body>
 
-<!--<form>-->
-<!--    <div class="form-group">-->
-<!--        <label for="title">Title</label>-->
-<!--        <input type="text" class="form-control" id="title" placeholder="ex: 20 Weeks Later">-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--        <label for="rating">Rating</label>-->
-<!--        <select class="form-control" id="rating">-->
-<!--            <option>1</option>-->
-<!--            <option>2</option>-->
-<!--            <option>3</option>-->
-<!--            <option>4</option>-->
-<!--            <option>5</option>-->
-<!--        </select>-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--        <label for="description">Description</label>-->
-<!--        <textarea class="form-control" id="description" rows="3"></textarea>-->
-<!--    </div>-->
-<!--</form>-->
-<div>
-<div class="coffee-place">
-    <b>Add a Movie</b>
-</div>
 <form>
-    <label for="roast-selection2">Genre</label><br>
-    <select id="roast-selection2">
-        <option>Comedy</option>
-        <option>Action</option>
-        <option>Sci-fi</option>
-        <option>Horror</option>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter Movie Title">
+    </div>
+    <div class="form-group">
+        <label for="rating">Rating</label>
+        <select class="form-control" id="rating">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <label for="genre">Genre</label><br>
+            <select id="genre">
+                <option>Comedy</option>
+                <option>Action</option>
+                <option>Sci-fi</option>
+                <option>Horror</option>
+            </select>
 
-    </select>
-    <br>
-    <!--        Created input text for Coffee Name-->
-    <label for="userInput">Movie Title</label><br>
-    <input type="text" autocomplete="off" id="userInput" onfocus="this.value=''" value="Enter Movie Title">
-    <br>
-    <input id="submit2" type="submit" />
-    <!--        -->
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
+    </div>
+        <input id="submit2" type="submit">
+
 </form>
+<div>
 
-</div>
+<!--<div class="coffee-place">-->
+<!--    <b>Add a Movie</b>-->
+<!--</div>-->
+<!--<form id="form1">-->
+<!--    <label for="roast-selection2">Genre</label><br>-->
+<!--    <select id="roast-selection2">-->
+<!--        <option>Comedy</option>-->
+<!--        <option>Action</option>-->
+<!--        <option>Sci-fi</option>-->
+<!--        <option>Horror</option>-->
+
+<!--    </select>-->
+<!--    <br>-->
+<!--    &lt;!&ndash;        Created input text for Coffee Name&ndash;&gt;-->
+<!--    <label for="userInput">Movie Title</label><br>-->
+<!--    <input type="text" autocomplete="off" id="userInput" onfocus="this.value=''" value="Enter Movie Title">-->
+<!--    <br>-->
+<!--    <input id="submit2" type="submit" />-->
+<!--    &lt;!&ndash;        &ndash;&gt;-->
+<!--</form>-->
+
+<!--</div>-->
 <!-- end of big div -->
 
 <div id="outputForMovies"></div>
 
 
-<script src="js/jquery-3.6.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="movie-project.js"></script>
 </body>
 </html>
