@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Movie Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body>
+
+<!--<form>-->
+<!--    <div class="form-group">-->
+<!--        <label for="title">Title</label>-->
+<!--        <input type="text" class="form-control" id="title" placeholder="ex: 20 Weeks Later">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="rating">Rating</label>-->
+<!--        <select class="form-control" id="rating">-->
+<!--            <option>1</option>-->
+<!--            <option>2</option>-->
+<!--            <option>3</option>-->
+<!--            <option>4</option>-->
+<!--            <option>5</option>-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="description">Description</label>-->
+<!--        <textarea class="form-control" id="description" rows="3"></textarea>-->
+<!--    </div>-->
+<!--</form>-->
+<div>
+<div class="coffee-place">
+    <b>Add a Movie</b>
+</div>
+<form>
+    <label for="roast-selection2">Genre</label><br>
+    <select id="roast-selection2">
+        <option>Comedy</option>
+        <option>Action</option>
+        <option>Sci-fi</option>
+        <option>Horror</option>
+
+    </select>
+    <br>
+    <!--        Created input text for Coffee Name-->
+    <label for="userInput">Movie Title</label><br>
+    <input type="text" autocomplete="off" id="userInput" onfocus="this.value=''" value="Enter Movie Title">
+    <br>
+    <input id="submit2" type="submit" />
+    <!--        -->
+</form>
+
+</div>
+<!-- end of big div -->
+
 <div id="outputForMovies"></div>
+
+
+<script src="js/jquery-3.6.1.min.js"></script>
 <script src="movie-project.js"></script>
 </body>
 </html>

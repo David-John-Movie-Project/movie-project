@@ -2,18 +2,18 @@
 // This gets the movies from our glitch
 const moviesURL = "https://tender-brick-bowler.glitch.me/movies"
 
-function getMovies() {
-    fetch(moviesURL)
-        .then(resp => resp.json()).then(data=>console.log(data));
-}
-
-getMovies();
+// function getMovies() {
+//     fetch(moviesURL)
+//         .then(resp => resp.json()).then(data=>console.log(data));
+// }
+//
+// getMovies();
 
 
 
 // this lets you add a movie
 
-const bookToPost = {
+const movieToPost = {
     title: "Eleanor of Aquitaine",
     author: {
         firstName: "Ralph",
@@ -26,7 +26,7 @@ const postOptions = {
     headers: {
         'Content-Type' : 'application/json'
     },
-    body: JSON.stringify(bookToPost)
+    body: JSON.stringify(movieToPost)
 }
 
 function getMovies() {
@@ -47,12 +47,21 @@ const deleteOptions = {
         'Content-Type' : 'application/json'
     }
 }
-fetch(moviesURL + '/1', deleteOptions).then(getMovies);
+// fetch(moviesURL + '/6', deleteOptions).then(getMovies);
 
 
-
+// function addMovie(e) {
+//     e.preventDefault();
+//     let newMovie = {
+//         id : newMovie.length + 1,
+//         title : "",
+//         director : {
+//             firstName: "",
+//             lastName: ""
+//         }
+//     }
+//     moviesURL.push(addMovie)
+// }
 
 // use themoviedb.org/documentation/api   to get the movies
 
-
-// comment
