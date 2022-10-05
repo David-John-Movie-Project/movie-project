@@ -29,11 +29,11 @@ const postOptions = {
     body: JSON.stringify(movieToPost)
 }
 
-function getMovies() {
-    fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
-}
+// function getMovies() {
+//     fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
+// }
 
-getMovies();
+// getMovies();
 
 // fetch(moviesURL, postOptions).then(getMovies);
 
@@ -47,21 +47,9 @@ const deleteOptions = {
         'Content-Type' : 'application/json'
     }
 }
-// fetch(moviesURL + '/6', deleteOptions).then(getMovies);
+// fetch(moviesURL + '/1', deleteOptions).then(getMovies);
 
 
-// function addMovie(e) {
-//     e.preventDefault();
-//     let newMovie = {
-//         id : newMovie.length + 1,
-//         title : "",
-//         director : {
-//             firstName: "",
-//             lastName: ""
-//         }
-//     }
-//     moviesURL.push(addMovie)
-// }
 
 // use themoviedb.org/documentation/api   to get the movies
 
@@ -85,14 +73,17 @@ $('#form1').submit((e) => {
         },
         body: JSON.stringify(addMovie)
     }
-    //POST movie
-function getMovies() {
+    // POST movie
+
     fetch(moviesURL, postOptions)
-        .then(resp => resp.json().then(data=>console.log(data))
+        .then(resp => resp.json())
         .then(moviePosters => {
             console.log(moviePosters)
-        }).catch(error => console.log(error)))
-}
+        }).catch(error => console.log(error))
+
 });
 
+function getMovies() {
+    fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
+}
 getMovies()
