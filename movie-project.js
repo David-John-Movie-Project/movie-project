@@ -42,14 +42,21 @@ const postOptions = {
 
                         // This deletes the movies
 
-
-const deleteOptions = {
-    method: 'DELETE',
-    headers: {
-        'Content-Type' : 'application/json'
+async function deleteCard(id) {
+    const deleteOptions = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     }
+
+    fetch(`${moviesURL}/${id}`, deleteOptions)
+        // .then(getMovies);
+        .then(resp => resp.json())
+        .then(moviePosters => {
+            movieGlitch();
+        }).catch(error => console.log(error))
 }
-// fetch(moviesURL + '/8', deleteOptions).then(getMovies);
 
 
 
@@ -106,7 +113,7 @@ async function movieGlitch() {
                 <p> ${movie.rating ?? ''}</p>
                 <p>${movie.description ?? ''}</p>
                 <br>
-                <button>Delete</button>
+                <button class="deleteMovieCard" data-delete-card="${movie.id}">Delete</button>
             </div>
             `;
         }) // end forEach
@@ -124,4 +131,11 @@ function getMovies() {
     fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
 }
 getMovies()
+
+// $(".deleteMovieCard").on("click", function (){
+$(document.body).on("click", ".deleteMovieCard", function(){
+    // $(this).attr("data-delete-card");
+    console.log($(this).attr("data-delete-card"))
+    deleteCard($(this).attr("data-delete-card"))
+});
 
