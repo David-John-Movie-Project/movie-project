@@ -85,37 +85,41 @@ $('#form1').submit((e) => {
 
                 // This will add a card everytime the movie is created
 
+ //    data.list.forEach((movie, i) => {
+ //        if(i % 8 == 0) {
+ //            $(`#outputForMovies`).append(`<div class="card-header col-2 mx-2 border"> <p class="date">${movie.result[i].dt_txt.split(" ")[0]}</p>
+ //             <p class="title"><${movie.result[i].weather[0].icon}.png"><br> ${data.list[i].main.temp}&#8457 / ${data.movie[i].main.temp}&#8457;</p><hr>
+ //             <p class="rating">Description: ${movie.result[i].weather[0].description}</p><hr>
+ //             <p class="genre">Humidity: ${movie.result[i]}</p><hr>
+ //             <p class="description">Wind: ${movie.result[i]}</p><hr>
+ //        }
+ //
+ //    })
+ // });
 
 
-
-//     data.list.forEach((forecast, i) => {
-//         if(i % 8 == 0) {
-//             $(`#cards`).append(`<div class="card-header col-2 mx-2 border"> <p class="date">${data.list[i].dt_txt.split(" ")[0]}</p>
-//              <p class="temp"><img src="http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png"><br> ${data.list[i].main.temp}&#8457 / ${data.list[i].main.temp}&#8457;</p><hr>
-//              <p class="description">Description: ${data.list[i].weather[0].description}</p><hr>
-//              <p class="humidity">Humidity: ${data.list[i].main.humidity}</p><hr>
-//              <p class="wind">Wind: ${data.list[i].wind.speed}</p><hr>
-//              <p class="preassure">Preassure: ${data.list[i].main.pressure}</p></div>  `);
-//         }
-//
-//     })
-// // });
-
-
-/// This get the api from abd
+                   // This get the api from TMDB
 
 async function movieAPIaSYNC(title) {
     try {
-        let response = await fetch(`https://api.themoviedb.org/3/search/movie/?query=${title}&api_key=${MOVIE_PROJECT_KEY}`);
+        let response = await fetch(`https://api.themoviedb.org/3/search/movie/?query=${title}&${genre}&api_key=${MOVIE_PROJECT_KEY}`);
         let events = await response.json();
         console.log(events);
+        $('#outputForMovies').each((element, index) => {
+            document.getElementById("outputForMovies").innerHTML += `
+            <div class="card">
+                <h3>${title}</h3>
+                <h3>${genre[0].result}</h3>
+                <p> ${rating}</p>            
+            </div>`
+        })
     }
     catch(err) {
         console.log(err);
     }
 }
 
-movieAPIaSYNC('terminator');
+movieAPIaSYNC("terminator");
 
 
 function getMovies() {
@@ -123,4 +127,3 @@ function getMovies() {
 }
 getMovies()
 
-//

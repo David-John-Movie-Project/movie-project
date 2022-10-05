@@ -39,29 +39,11 @@
 </form>
 
 
-<!--<div class="coffee-place">-->
-<!--    <b>Add a Movie</b>-->
-<!--</div>-->
-<!--<form id="form1">-->
-<!--    <label for="roast-selection2">Genre</label><br>-->
-<!--    <select id="roast-selection2">-->
-<!--        <option>Comedy</option>-->
-<!--        <option>Action</option>-->
-<!--        <option>Sci-fi</option>-->
-<!--        <option>Horror</option>-->
-
-<!--    </select>-->
-<!--    <br>-->
-<!--    &lt;!&ndash;        Created input text for Coffee Name&ndash;&gt;-->
-<!--    <label for="userInput">Movie Title</label><br>-->
-<!--    <input type="text" autocomplete="off" id="userInput" onfocus="this.value=''" value="Enter Movie Title">-->
-<!--    <br>-->
-<!--    <input id="submit2" type="submit" />-->
-<!--    &lt;!&ndash;        &ndash;&gt;-->
-<!--</form>-->
-
-<!--</div>-->
-<!-- end of big div -->
+<form action="/delete" method="POST">
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="hidden" name="_token" value="{{$title}}">
+    <input type="submit" value="Delete">
+</form>
 
 <div id="outputForMovies"></div>
 
