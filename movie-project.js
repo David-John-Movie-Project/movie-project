@@ -88,25 +88,25 @@ $('#form1').submit((e) => {
 
 
 
-    data.list.forEach((forecast, i) => {
-        if(i % 8 == 0) {
-            $(`#cards`).append(`<div class="card-header col-2 mx-2 border"> <p class="date">${data.list[i].dt_txt.split(" ")[0]}</p>
-             <p class="temp"><img src="http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png"><br> ${data.list[i].main.temp}&#8457 / ${data.list[i].main.temp}&#8457;</p><hr>
-             <p class="description">Description: ${data.list[i].weather[0].description}</p><hr>
-             <p class="humidity">Humidity: ${data.list[i].main.humidity}</p><hr>
-             <p class="wind">Wind: ${data.list[i].wind.speed}</p><hr>
-             <p class="preassure">Preassure: ${data.list[i].main.pressure}</p></div>  `);
-        }
-
-    })
-});
+//     data.list.forEach((forecast, i) => {
+//         if(i % 8 == 0) {
+//             $(`#cards`).append(`<div class="card-header col-2 mx-2 border"> <p class="date">${data.list[i].dt_txt.split(" ")[0]}</p>
+//              <p class="temp"><img src="http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png"><br> ${data.list[i].main.temp}&#8457 / ${data.list[i].main.temp}&#8457;</p><hr>
+//              <p class="description">Description: ${data.list[i].weather[0].description}</p><hr>
+//              <p class="humidity">Humidity: ${data.list[i].main.humidity}</p><hr>
+//              <p class="wind">Wind: ${data.list[i].wind.speed}</p><hr>
+//              <p class="preassure">Preassure: ${data.list[i].main.pressure}</p></div>  `);
+//         }
+//
+//     })
+// // });
 
 
 /// This get the api from abd
 
-async function movieAPIASYNC(title) {
+async function movieAPIaSYNC(title) {
     try {
-        let response = await fetch(`https://api.themoviedb.org/3/movie/550?api_key=${MOVIE_PROJECT_KEY}`);
+        let response = await fetch(`https://api.themoviedb.org/3/search/movie/?query=${title}&api_key=${MOVIE_PROJECT_KEY}`);
         let events = await response.json();
         console.log(events);
     }
@@ -115,7 +115,7 @@ async function movieAPIASYNC(title) {
     }
 }
 
-movieAPIASYNC();
+movieAPIaSYNC('terminator');
 
 
 function getMovies() {
