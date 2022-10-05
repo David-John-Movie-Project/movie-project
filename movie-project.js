@@ -83,7 +83,35 @@ $('#form1').submit((e) => {
 
 });
 
+
+$.get("https://tender-brick-bowler.glitch.me/movies", {
+    APPID: OPEN_WEATHER_APPID,
+    lat:    29.423017,
+    lon:   -98.48527,
+    units: "imperial"
+}).done(function(data) {
+    console.log(data.list[0].weather[0].description)
+    // log current city name
+    $("#currentCity").text(`Current City: ${data.city.name}`);
+
+    data.list.forEach((forecast, i) => {
+        if(i % 8 == 0) {
+            $(`#cards`).append(`<div class="card-header col-2 mx-2 border"> <p class="date">${data.list[i].dt_txt.split(" ")[0]}</p>
+             <p class="temp"><img src="http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png"><br> ${data.list[i].main.temp}&#8457 / ${data.list[i].main.temp}&#8457;</p><hr>
+             <p class="description">Description: ${data.list[i].weather[0].description}</p><hr>
+             <p class="humidity">Humidity: ${data.list[i].main.humidity}</p><hr>
+             <p class="wind">Wind: ${data.list[i].wind.speed}</p><hr>
+             <p class="preassure">Preassure: ${data.list[i].main.pressure}</p></div>  `);
+        }
+
+    })
+});
+
+
+
+
 function getMovies() {
     fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
 }
 getMovies()
+
