@@ -100,18 +100,22 @@ $('#form1').submit((e) => {
 
                    // This get the api from TMDB
 
-async function movieAPIaSYNC(title) {
+async function movieGlitch() {
     try {
-        let response = await fetch(`https://api.themoviedb.org/3/search/movie/?query=${title}&${genre}&api_key=${MOVIE_PROJECT_KEY}`);
+        let response = await fetch(moviesURL);
         let events = await response.json();
+        console.log("inside movieAPIaSYNC function. events returned: ");
         console.log(events);
-        $('#outputForMovies').each((element, index) => {
-            document.getElementById("outputForMovies").innerHTML += `
-            <div class="card">
-                <h3>${title}</h3>
-                <h3>${genre[0].result}</h3>
-                <p> ${rating}</p>            
-            </div>`
+        events.forEach((movie, index) => {
+            $("#outputForMovies").append(`
+            <div class="card" style="width: 15rem; background-color: #5d5d5d; color: white">
+                <img src="${movie.poster}">
+                <h3>${movie.title}</h3>
+                <h3>${movie.genre}</h3>
+                <p> ${movie.rating}</p> 
+                <p>${movie.description}</p>           
+            </div>
+            `)
         })
     }
     catch(err) {
@@ -119,7 +123,7 @@ async function movieAPIaSYNC(title) {
     }
 }
 
-movieAPIaSYNC("terminator");
+movieGlitch();
 
 
 function getMovies() {
