@@ -11,7 +11,7 @@ const moviesURL = "https://tender-brick-bowler.glitch.me/movies"
 
 
 
-// this lets you add a movie
+                            // this lets you add a movie
 
 const movieToPost = {
     title: "Eleanor of Aquitaine",
@@ -38,7 +38,7 @@ const postOptions = {
 // fetch(moviesURL, postOptions).then(getMovies);
 
 
-// This deletes the movies
+                        // This deletes the movies
 
 
 const deleteOptions = {
@@ -51,9 +51,7 @@ const deleteOptions = {
 
 
 
-// use themoviedb.org/documentation/api   to get the movies
-
-
+                    // This adds the movie into the array with the form
 $('#form1').submit((e) => {
     e.preventDefault();
 
@@ -83,6 +81,7 @@ $('#form1').submit((e) => {
 
 });
 
+                // This will add a card everytime the movie is created
 
 $.get("https://tender-brick-bowler.glitch.me/movies", {
     APPID: OPEN_WEATHER_APPID,
