@@ -106,12 +106,12 @@ async function movieGlitch() {
         let moviesHTML = '';
         events.forEach((movie, index) => {
             moviesHTML += `
-            <div class="card" style="width: 15rem; background-color: #5d5d5d; color: white">
+            <div class="card" style="width: 18rem; background-color: #5d5d5d; color: white">
                   ${movie.poster ? `<img src="${movie.poster}" />` : ''}
                 <h3>${movie.title ?? ''}</h3>
-                <h3>${movie.genre ?? ''}</h3>
+                <p>${movie.genre ?? ''}</p>
                 <p> ${movie.rating ?? ''}</p>
-                <p>${movie.description ?? ''}</p>
+                <p>${movie.plot ?? ''}</p>
                 <br>
                 <button class="deleteMovieCard" data-delete-card="${movie.id}">Delete</button>
             </div>
@@ -134,10 +134,12 @@ async function movieGlitch() {
 
 
 
-
             // Add event listener to delete the card
     $(document.body).on("click", ".deleteMovieCard", function(){
         // console.log($(this).attr("data-delete-card"))
         deleteCard($(this).attr("data-delete-card"))
     });
+
+    //      adjusts playback speed of video
+    document.querySelector('video').playbackRate = .6;
 
