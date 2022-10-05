@@ -1,43 +1,43 @@
-const movieAPI = "MOVIE_PROJECT_KEY"
+    const movieAPI = "MOVIE_PROJECT_KEY"
 
 
-// This gets the movies from our glitch
-const moviesURL = "https://tender-brick-bowler.glitch.me/movies"
+    // This gets the movies from our glitch
+    const moviesURL = "https://tender-brick-bowler.glitch.me/movies"
 
-// function getMovies() {
-//     fetch(moviesURL)
-//         .then(resp => resp.json()).then(data=>console.log(data));
-// }
-//
-// getMovies();
+    // function getMovies() {
+    //     fetch(moviesURL)
+    //         .then(resp => resp.json()).then(data=>console.log(data));
+    // }
+    //
+    // getMovies();
 
 
 
-                            // this lets you add a movie
+                            // this lets you add a movie function
 
-const movieToPost = {
-    title: "Eleanor of Aquitaine",
-    author: {
-        firstName: "Ralph",
-        lastName: "Turner"
+    const movieToPost = {
+        title: "Eleanor of Aquitaine",
+        author: {
+            firstName: "Ralph",
+            lastName: "Turner"
+        }
     }
-}
 
-const postOptions = {
-    method: 'POST',
-    headers: {
-        'Content-Type' : 'application/json'
-    },
-    body: JSON.stringify(movieToPost)
-}
+    const postOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(movieToPost)
+    }
 
-// function getMovies() {
-//     fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
-// }
+    // function getMovies() {
+    //     fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
+    // }
 
-// getMovies();
+    // getMovies();
 
-// fetch(moviesURL, postOptions).then(getMovies);
+    // fetch(moviesURL, postOptions).then(getMovies);
 
 
                         // This deletes the movies
@@ -124,18 +124,20 @@ async function movieGlitch() {
     }
 }
 
-movieGlitch();
+    movieGlitch();
 
 
-function getMovies() {
-    fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
-}
-getMovies()
+    function getMovies() {
+        fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
+    }
+    getMovies()
 
-// $(".deleteMovieCard").on("click", function (){
-$(document.body).on("click", ".deleteMovieCard", function(){
-    // $(this).attr("data-delete-card");
-    console.log($(this).attr("data-delete-card"))
-    deleteCard($(this).attr("data-delete-card"))
-});
+
+
+
+            // Add event listener to delete the card
+    $(document.body).on("click", ".deleteMovieCard", function(){
+        // console.log($(this).attr("data-delete-card"))
+        deleteCard($(this).attr("data-delete-card"))
+    });
 
