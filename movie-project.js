@@ -49,7 +49,7 @@ const deleteOptions = {
         'Content-Type' : 'application/json'
     }
 }
-// fetch(moviesURL + '/1', deleteOptions).then(getMovies);
+// fetch(moviesURL + '/8', deleteOptions).then(getMovies);
 
 
 
@@ -83,22 +83,11 @@ $('#form1').submit((e) => {
 
 });
 
-                // This will add a card everytime the movie is created
-
- //    data.list.forEach((movie, i) => {
- //        if(i % 8 == 0) {
- //            $(`#outputForMovies`).append(`<div class="card-header col-2 mx-2 border"> <p class="date">${movie.result[i].dt_txt.split(" ")[0]}</p>
- //             <p class="title"><${movie.result[i].weather[0].icon}.png"><br> ${data.list[i].main.temp}&#8457 / ${data.movie[i].main.temp}&#8457;</p><hr>
- //             <p class="rating">Description: ${movie.result[i].weather[0].description}</p><hr>
- //             <p class="genre">Humidity: ${movie.result[i]}</p><hr>
- //             <p class="description">Wind: ${movie.result[i]}</p><hr>
- //        }
- //
- //    })
- // });
 
 
-                   // This get the api from TMDB
+
+
+                   // This creates the cards when we add a movie
 
 async function movieGlitch() {
     try {
@@ -113,7 +102,9 @@ async function movieGlitch() {
                 <h3>${movie.title}</h3>
                 <h3>${movie.genre}</h3>
                 <p> ${movie.rating}</p> 
-                <p>${movie.description}</p>           
+                <p>${movie.description}</p>  
+                <br>
+                <button>Delete</button>         
             </div>
             `)
         })
