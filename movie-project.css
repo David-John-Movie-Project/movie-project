@@ -2,6 +2,11 @@ body {
  color: #ffffff;
 }
 
+.navbar {
+ display: flex;
+ justify-content: center;
+}
+
 .card {
 display: flex;
  flex-direction: column;
