@@ -8,8 +8,41 @@
 </head>
 <body>
 
+<!--Nav bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--end of nav bar-->
 
+            <!-- This outputs our cards Movies                -->
+<div id="outputForMovies" class="container text-center d-flex">
+    <div class="row">
+        <div class="col "></div>
+<div id="deleteButton"></div>
 
+    </div>
+</div>
+
+                    <!--     Forms -->
 <form id="form1">
     <div class="form-group">
         <label for="title">Title</label>
@@ -25,36 +58,24 @@
             <option>5</option>
         </select>
         <label for="genre">Genre</label><br>
-            <select id="genre">
-                <option>Comedy</option>
-                <option>Action</option>
-                <option>Sci-fi</option>
-                <option>Horror</option>
-            </select>
+        <select id="genre">
+            <option>Comedy</option>
+            <option>Action</option>
+            <option>Sci-fi</option>
+            <option>Horror</option>
+        </select>
 
     </div>
     <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" rows="3"></textarea>
+        <label for="plot">Plot</label>
+        <textarea class="form-control" id="plot" rows="3"></textarea>
     </div>
-        <input id="submit2" type="submit">
+    <input id="submit2" type="submit">
 
 </form>
+                        <!--End of form -->
 
-
-
-            <!-- This outputs our cards Movies                -->
-<div id="outputForMovies" class="container text-center d-flex">
-    <div class="row">
-        <div class="col "></div>
-<div id="deleteButton"></div>
-
-    </div>
-</div>
-
-
-
-
+                    <!-- Background video                       -->
 <video autoplay muted loop class="star-background">
     <source src="img/pexels-helder-sato-8443332.mp4">
 </video>

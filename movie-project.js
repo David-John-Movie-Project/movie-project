@@ -68,7 +68,7 @@ $('#form1').submit((e) => {
         title: $("#title").val(),
         genre: $("#genre").val(),
         rating: $("#rating").val(),
-        description: $("#description").val(),
+        plot: $("#plot").val(),
     }
     console.log("this is the add movie log")
     console.log(addMovie)
