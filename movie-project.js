@@ -92,6 +92,7 @@ $('#form1').submit((e) => {
         genre: $("#genre").val(),
         rating: $("#rating").val(),
         plot: $("#plot").val(),
+        poster: `img/Project-M-logos_white.png`
     }
     console.log("this is the add movie log")
     console.log(addMovie)
@@ -115,7 +116,8 @@ $('#form1').submit((e) => {
 });
 
 
-
+// image variable
+// let imagePlaceHolder = "img/Project-M-1.png"
 
 
                             // This creates the cards when we add a movie
@@ -131,7 +133,7 @@ async function movieGlitch() {
             moviesHTML += `
             <div class="card ml-4" style="border-radius:  0; width: 100%; background-color: #5d5d5d; color: white">
             
-                <div class="card-img-top"> ${movie.poster ? `<img style="width:216px; height:500px" class="poster" src="${movie.poster}" />` : ''}</div> 
+                <div class="card-img-top"> ${movie.poster ? `<img class="poster" src="${movie.poster}" />` : ''}</div> 
                 <div class="banner-content">
                 <h3>${movie.title ?? ''}</h3>
                 <p>${movie.genre ?? ''}</p>

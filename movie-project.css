@@ -58,6 +58,10 @@ body {
 
 }
 
+.poster {
+ width: 250px;
+ height: 500px;
+}
 
 /*Side bar */
 /* The sidebar menu */
