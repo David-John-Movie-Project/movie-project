@@ -60,17 +60,26 @@ async function deleteCard(id) {
 
                                 // this edits the cards
 
-let modification = {
-    title: "Eleanor of Aquitaine: Queen of France, Queen of England"
-}
+
+
+
 async function editCard(id) {
+    let editMovie = {
+        title: $("#title-edit-" + id).val(),
+        genre: $("#genre-edit-" + id).val(),
+        rating: $("#rating-edit-" + id).val(),
+        plot: $("#plot-edit-" +id).val(),
+    }
     const patchOptions = {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(modification)
+        body: JSON.stringify(editMovie)
     }
+
+    fetch(moviesURL + "/"+ id, patchOptions).then(movieGlitch);
+
 }
 
 
@@ -131,26 +140,26 @@ async function movieGlitch() {
 
                 <br>
                 <button class="deleteMovieCard" data-delete-card="${movie.id}">Delete</button>
-                <button class="editMovieCard" data-edit-card=${movie.id}">Edit<button>
+                <button class="editMovieCard" data-edit-card="${movie.id}">Edit<button>
        </div>
 <!--                    form for edit-->
                 <!--     Forms2 is inside our for each -->
-    <form data-form="true" class="hidden-form" id="form2"${movie.id}>
+    <form data-form="true" class="hidden-form" id="form2-${movie.id}">
         <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter Movie Title">
+            <label for="title-edit-${movie.id}">Title</label>
+            <input type="text" class="form-control" id="title-edit-${movie.id}" placeholder="Enter Movie Title">
         </div>
         <div class="form-group">
-            <label for="rating">Rating</label>
-            <select class="form-control" id="rating">
+            <label for="rating-edit-${movie.id}">Rating</label>
+            <select class="form-control" id="rating-edit-${movie.id}">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
             </select>
-            <label for="genre">Genre</label><br>
-            <select id="genre">
+            <label for="genre-edit-${movie.id}">Genre</label><br>
+            <select id="genre-edit-${movie.id}">
                 <option>Comedy</option>
                 <option>Action</option>
                 <option>Sci-fi</option>
@@ -159,16 +168,23 @@ async function movieGlitch() {
 
         </div>
         <div class="form-group">
-            <label for="plot">Plot</label>
-            <textarea class="form-control" id="plot" rows="3"></textarea>
+            <label for="plot-edit-${movie.id}">Plot</label>
+            <textarea class="form-control" id="plot-edit-${movie.id}" rows="3"></textarea>
         </div>
-        <input id="submit2" type="submit">
+        <input class="submit3" data-edit-card="${movie.id}" type="submit">
 
     </form>
+    
                             </div>
 
             `;
+
         }) // end forEach
+        $(document.body).on('click', '.submit3', function (e) {
+            e.preventDefault()
+            console.log("hey");
+            editCard($(this).attr("data-edit-card"))
+        })
         $('#outputForMovies').html(moviesHTML);
     }
     catch(err) {
@@ -195,6 +211,7 @@ async function movieGlitch() {
     $(document.body).on("click", ".editMovieCard", function(){
         $(this).parents('.card').find('[data-form="true"]').toggleClass('hidden-form')
     });
+
 
 
 
