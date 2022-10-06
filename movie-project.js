@@ -116,18 +116,12 @@ $('#form1').submit((e) => {
 });
 
 
-// image variable
-// let imagePlaceHolder = "img/Project-M-1.png"
-
-
                             // This creates the cards when we add a movie
 
 async function movieGlitch() {
     try {
         let response = await fetch(moviesURL);
         let events = await response.json();
-        console.log("inside movieAPIaSYNC function. events returned: ");
-        console.log(events);
         let moviesHTML = '';
         events.forEach((movie, index) => {
             moviesHTML += `
