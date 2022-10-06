@@ -60,6 +60,7 @@ async function deleteCard(id) {
 
 
 
+
                     // This adds the movie into the array with the form
 $('#form1').submit((e) => {
     e.preventDefault();
@@ -141,18 +142,25 @@ async function movieGlitch() {
 
 
 
-            // Add event listener to delete the card
+            // Add event listener to delete the card and edit
     $(document.body).on("click", ".deleteMovieCard", function(){
         // console.log($(this).attr("data-delete-card"))
         deleteCard($(this).attr("data-delete-card"))
     });
 
-    //      adjusts playback speed of video
+    // $(document.body).on("click", "editMovieCard", function (){
+
+    // }  )
+
+
+
+
+
+
+                         //      adjusts playback speed of video
     document.querySelector('video').playbackRate = .6;
 
-
-
-//    side bar
+                            //    side bar
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
     function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
