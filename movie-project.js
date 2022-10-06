@@ -1,7 +1,7 @@
 const movieAPI = "MOVIE_PROJECT_KEY"
 
 
-// This gets the movies from our glitch
+                    // This gets the movies from our glitch
 const moviesURL = "https://tender-brick-bowler.glitch.me/movies"
 
 // function getMovies() {
@@ -13,7 +13,7 @@ const moviesURL = "https://tender-brick-bowler.glitch.me/movies"
 
 
 
-// this lets you add a movie function
+                // this lets you add a movie function
 
 const movieToPost = {
     title: "Eleanor of Aquitaine",
@@ -40,7 +40,7 @@ const postOptions = {
 // fetch(moviesURL, postOptions).then(getMovies);
 
 
-// This deletes the movies
+                            // This deletes the movies
 
 async function deleteCard(id) {
     const deleteOptions = {
@@ -58,7 +58,7 @@ async function deleteCard(id) {
         }).catch(error => console.log(error))
 }
 
-// this edits the cards
+                                // this edits the cards
 
 let modification = {
     title: "Eleanor of Aquitaine: Queen of France, Queen of England"
@@ -73,7 +73,8 @@ async function editCard(id) {
     }
 }
 
-// This adds the movie into the array with the form
+
+                // This adds the movie into the array with the form
 $('#form1').submit((e) => {
     e.preventDefault();
 
@@ -108,7 +109,7 @@ $('#form1').submit((e) => {
 
 
 
-// This creates the cards when we add a movie
+                            // This creates the cards when we add a movie
 
 async function movieGlitch() {
     try {
@@ -133,7 +134,7 @@ async function movieGlitch() {
                 <button class="editMovieCard" data-edit-card=${movie.id}">Edit<button>
        </div>
 <!--                    form for edit-->
-   <!--     Forms2 -->
+                <!--     Forms2 is inside our for each -->
     <form data-form="true" class="hidden-form" id="form2"${movie.id}>
         <div class="form-group">
             <label for="title">Title</label>
@@ -175,42 +176,42 @@ async function movieGlitch() {
     }
 }
 
-movieGlitch();
+    movieGlitch();
 
 
-function getMovies() {
-    fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
-}
-getMovies()
-
-
-
-// Add event listener to delete the card
-$(document.body).on("click", ".deleteMovieCard", function(){
-    // console.log($(this).attr("data-delete-card"))
-    deleteCard($(this).attr("data-delete-card"))
-});
-                // edit button event listener
-$(document.body).on("click", ".editMovieCard", function(){
-    $(this).parents('.card').find('[data-form="true"]').toggleClass('hidden-form')
-});
+    function getMovies() {
+        fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
+    }
+    getMovies()
 
 
 
-//      adjusts playback speed of video
-document.querySelector('video').playbackRate = .6;
+                        // Add event listener to delete the card
+    $(document.body).on("click", ".deleteMovieCard", function(){
+        // console.log($(this).attr("data-delete-card"))
+        deleteCard($(this).attr("data-delete-card"))
+    });
+                    // edit button event listener
+    $(document.body).on("click", ".editMovieCard", function(){
+        $(this).parents('.card').find('[data-form="true"]').toggleClass('hidden-form')
+    });
 
 
 
-//    side bar
-/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
+                        //      adjusts playback speed of video
+    document.querySelector('video').playbackRate = .6;
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-}
+
+
+                        //    side bar
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
