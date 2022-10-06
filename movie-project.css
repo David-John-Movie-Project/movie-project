@@ -25,3 +25,24 @@ display: flex;
  opacity: 100%;
 }
 
+.poster {
+ width: 100%;
+ height: 100%;
+ /*width: 286px;*/
+ /*height: 450px;*/
+ object-fit: cover;
+}
+
+.card-img-top:hover {
+ opacity: 1;
+}
+
+.banner-content{
+ position:absolute;
+ top:0;
+ left:0;
+ display:none;
+
+}
+
+.card-img-top:hover + .banner-content{display:block;}
