@@ -119,8 +119,9 @@ async function movieGlitch() {
                 <button class="deleteMovieCard" data-delete-card="${movie.id}">Delete</button>
                 <button class="editMovieCard"
                 data-edit-card=${movie.id}">Edit<button>
-                </div>
-            </div>
+       </div>
+                            </div>
+
             `;
         }) // end forEach
         $('#outputForMovies').html(moviesHTML);

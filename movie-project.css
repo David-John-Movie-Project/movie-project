@@ -33,6 +33,8 @@ display: flex;
  object-fit: cover;
 }
 
+
+                         /* This makes the card display */
 .card-img-top:hover {
  opacity: 1;
 }
