@@ -58,7 +58,20 @@ async function deleteCard(id) {
         }).catch(error => console.log(error))
 }
 
+// this edits the cards
 
+let modification = {
+    title: "Eleanor of Aquitaine: Queen of France, Queen of England"
+}
+async function editCard(id) {
+    const patchOptions = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(modification)
+    }
+}
 
 // This adds the movie into the array with the form
 $('#form1').submit((e) => {
@@ -106,7 +119,7 @@ async function movieGlitch() {
         let moviesHTML = '';
         events.forEach((movie, index) => {
             moviesHTML += `
-            <div class="card ml-4" style="border-radius:  0;  height: 500px; width: 100%; background-color: #5d5d5d; color: white">
+            <div class="card ml-4" style="border-radius:  0; width: 100%; background-color: #5d5d5d; color: white">
             
                 <div class="card-img-top"> ${movie.poster ? `<img style="width:216px; height:500px" class="poster" src="${movie.poster}" />` : ''}</div> 
                 <div class="banner-content">
@@ -119,6 +132,38 @@ async function movieGlitch() {
                 <button class="deleteMovieCard" data-delete-card="${movie.id}">Delete</button>
                 <button class="editMovieCard" data-edit-card=${movie.id}">Edit<button>
        </div>
+<!--                    form for edit-->
+   <!--     Forms2 -->
+    <form data-form="true" class="hidden-form" id="form2"${movie.id}>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter Movie Title">
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <select class="form-control" id="rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <label for="genre">Genre</label><br>
+            <select id="genre">
+                <option>Comedy</option>
+                <option>Action</option>
+                <option>Sci-fi</option>
+                <option>Horror</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="plot">Plot</label>
+            <textarea class="form-control" id="plot" rows="3"></textarea>
+        </div>
+        <input id="submit2" type="submit">
+
+    </form>
                             </div>
 
             `;
@@ -145,6 +190,12 @@ $(document.body).on("click", ".deleteMovieCard", function(){
     // console.log($(this).attr("data-delete-card"))
     deleteCard($(this).attr("data-delete-card"))
 });
+                // edit button event listener
+$(document.body).on("click", ".editMovieCard", function(){
+    $(this).parents('.card').find('[data-form="true"]').toggleClass('hidden-form')
+});
+
+
 
 //      adjusts playback speed of video
 document.querySelector('video').playbackRate = .6;
