@@ -106,7 +106,7 @@ async function movieGlitch() {
         let moviesHTML = '';
         events.forEach((movie, index) => {
             moviesHTML += `
-            <div class="card" style="width: 18rem; background-color: #5d5d5d; color: white">
+            <div class="card ml-4 " style="width: 18rem; background-color: #5d5d5d; color: white">
                   ${movie.poster ? `<img src="${movie.poster}" />` : ''}
                 <h3>${movie.title ?? ''}</h3>
                 <p>${movie.genre ?? ''}</p>
@@ -114,6 +114,8 @@ async function movieGlitch() {
                 <p>${movie.plot ?? ''}</p>
                 <br>
                 <button class="deleteMovieCard" data-delete-card="${movie.id}">Delete</button>
+                <button class="editMovieCard"
+                data-edit-card=${movie.id}">Edit<button>
             </div>
             `;
         }) // end forEach
