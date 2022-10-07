@@ -166,14 +166,11 @@ async function movieGlitch() {
             <textarea class="form-control" id="plot-edit-${movie.id}" rows="3"></textarea>
         </div>
         <input class="submit3" data-edit-card="${movie.id}" type="submit">
-
     </form>
-    
-                            </div>
-
-            `;
-
+<!--    end of form-->
+                            </div> `;
         }) // end forEach
+
                             // Event listener for Edit Button
         $(document.body).on('click', '.submit3', function (e) {
             e.preventDefault()
@@ -187,7 +184,7 @@ async function movieGlitch() {
     catch(err) {
         console.log(err);
     }
-}
+}   // end of MovieGlitch function
 
     movieGlitch();
 
@@ -204,7 +201,8 @@ async function movieGlitch() {
         // console.log($(this).attr("data-delete-card"))
         deleteCard($(this).attr("data-delete-card"))
     });
-                    // edit button event listener
+
+                    // edit button event listener to make the form show
     $(document.body).on("click", ".editMovieCard", function(){
         $(this).parents('.card').find('[data-form="true"]').toggleClass('hidden-form')
     });
