@@ -13,27 +13,25 @@ const moviesURL = "https://tender-brick-bowler.glitch.me/movies"
 
 
 
-                // this lets you add a movie function
+                // this lets you add a movie- function
 
-const movieToPost = {
-    title: "Eleanor of Aquitaine",
-    author: {
-        firstName: "Ralph",
-        lastName: "Turner"
-    }
-}
-
-const postOptions = {
-    method: 'POST',
-    headers: {
-        'Content-Type' : 'application/json'
-    },
-    body: JSON.stringify(movieToPost)
-}
-
-// function getMovies() {
-//     fetch(moviesURL).then(resp => resp.json()).then(data=>console.log(data));
+// const movieToPost = {
+//     title: "Eleanor of Aquitaine",
+//     author: {
+//         firstName: "Ralph",
+//         lastName: "Turner"
+//     }
 // }
+//
+// const postOptions = {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type' : 'application/json'
+//     },
+//     body: JSON.stringify(movieToPost)
+// }
+
+
 
 // getMovies();
 
@@ -176,11 +174,14 @@ async function movieGlitch() {
             `;
 
         }) // end forEach
+                            // Event listener for Edit Button
         $(document.body).on('click', '.submit3', function (e) {
             e.preventDefault()
             console.log("hey");
             editCard($(this).attr("data-edit-card"))
         })
+
+
         $('#outputForMovies').html(moviesHTML);
     }
     catch(err) {
