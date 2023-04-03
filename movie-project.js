@@ -1,8 +1,11 @@
+//  We are creating a var for the api key
 const movieAPI = "MOVIE_PROJECT_KEY"
 
 
                     // This gets the movies from our glitch
 const moviesURL = "https://tender-brick-bowler.glitch.me/movies"
+
+
 
 
                             // This deletes the movies
