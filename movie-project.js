@@ -26,10 +26,11 @@ async function deleteCard(id) {
         }).catch(error => console.log(error))
 }
 
+
+
+
+
                                 // this edits the cards
-
-
-
 
 async function editCard(id) {
     let editMovie = {
@@ -49,6 +50,8 @@ async function editCard(id) {
     fetch(moviesURL + "/"+ id, patchOptions).then(movieGlitch);
 
 }
+
+
 
 
                 // This adds the movie into the array with the form
